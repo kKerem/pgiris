@@ -1,0 +1,9 @@
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {background: none !important;color:#8b1104 !important}
+.baslik i {position: relative;top:-1px}
+pre code{border-radius: .25rem; font-weight: 400;  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-style: italic;}
+i.bi {position: relative;top:-1px}
+.fz-20{font-size: 20px;}
+div[id^='item'] {
+    margin:3rem 0
+}
+code {font-weight: 700;}

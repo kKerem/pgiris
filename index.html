@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+<link rel="stylesheet" href="./styles/atom-one-dark-reasonable.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="./style.css">
+
+<script>hljs.highlightAll();</script>
+</head>
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light shadow">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mt-2 mb-3 link-dark text-decoration-none border-bottom d-block w-100">
+                        <img src="./icon.png" alt="" srcset="" width="30px">
+                        <span class="fs-5 fw-semibold ps-3">Ruby Programlama</span>
+                      </a>
+                    <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 w-100">
+                        <nav class="nav nav-pills flex-column">
+                        <div class="baslik fw-semibold align-items-center justify-content-center"><i class="bi bi-book-half me-2 d-inline-block" style="color:#6610f2"></i>Yazım Kuralları</div>
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link ms-3 my-1" href="#item-1">Item 12</a>
+                            <a class="nav-link ms-3 my-1" href="#item-1-2">Item 1-2</a>
+                        </nav>
+                        <a class="nav-link" href="#item-2">Item 2</a>
+                        <a class="nav-link" href="#item-3">Item 3</a>
+                        <nav class="nav nav-pills flex-column">
+                            <a class="nav-link ms-3 my-1" href="#item-3-1">Item 3-1</a>
+                            <a class="nav-link ms-3 my-1" href="#item-3-2">Item 3-2</a>
+                        </nav>
+                        </nav>
+                    </nav>
+                </div>
+            </div>
+            <div class="col py-3">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-7">
+                        <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true" class="scrollspy-example-2" tabindex="0">
+                            
+                        <div id="item-1">
+                            <h4>Değişken tanımı</h4>
+                            <p>Kaydedilmesi istenen tüm veriler(anlık hesaplamalar hariç) doğru bir isime sahip olmak zorundadır.</p>
+                            <div class="alert alert-danger p-2 my-3">
+                                <i class="bi bi-x-circle-fill text-danger p-2"></i> Değişken isimlerinde türkçe karakter, sembol, boşluk <u>kullanılamaz</u> ve sayı ile <u>başlayamaz</u>.
+                                <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">1degişken = "......."</code></pre>
+                            </div>
+                            
+                            <div class="alert alert-success p-2 my-3">
+                                <i class="bi bi-check-circle-fill text-success p-2"></i> Doğru kullanım
+                                <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">birinci_degisken = "......."</code></pre>
+                            </div>
+                        </div>
+
+                        <div id="item-12">
+                            
+                            <h4>Değişken içeriği</h4>
+                            <p>
+                                Değişken içeriğine metin girilmesi gerekiyorsa tırnak işaretleri( <code>"..."</code> ) içerisinde olmak zorundadır. Aksi halde değişken içeriği bir metin olarak değil başka bir içeriğin adı olarak yorumlanır.
+                            </p>
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-3">
+                                    <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">birinci_degisken = "kerem"</code></pre>
+                                </div>
+                                <div class="col fw-semibol pt-2">
+                                    <i class="bi bi-check-circle-fill text-success p-2"></i>Sonuç<br><span class="small">kerem</span>
+                                </div>
+                            </div>
+                            <div class="row align-items-center justify-content-center">
+                                <div class="col-3">
+                                    <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">birinci_degisken = kerem</code></pre>
+                                </div>
+                                <div class="col fw-semibol pt-2">
+                                    <i class="bi bi-x-circle-fill text-danger p-2"></i>Sonuç<br><span class="small text-muted">Metin olarak değil bir değişken adı olarak yorumladı ve <span class="text-black">kerem</span class="text-danger"> diye bir değişken olmadığı için hata verdi.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="item-1">
+                            <h4>Aritmetik Operatörler</h4>
+                            Kodlamada sonuç olarak en fazla 2 farklı sonuç yorumlanır. <code class="fw-semibold">true</code>(doğru) yada <code class="fw-semibold">false</code>(yanlış). İki sonuçta uymuyorsa sonuç <code class="fw-semibold">nil</code>(boş) olarak yorumlanır.<br>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <center class="fw-semibold pb-1">Genel operatörler</center>
+                                    <table class="table table-bordered mb-0">
+                                        <tr>
+                                            <td>+</td>
+                                            <td>toplama</td>
+                                        </tr>
+                                        <tr>
+                                            <td>-</td>
+                                            <td>çıkarma</td>
+                                        </tr>
+                                        <tr>
+                                            <td>*</td>
+                                            <td>çarpma</td>
+                                        </tr>
+                                        <tr>
+                                            <td>/</td>
+                                            <td>bölme</td>
+                                        </tr>
+                                        <tr>
+                                            <td>**</td>
+                                            <td>kuvvet</td>
+                                        </tr>
+                                        <tr>
+                                            <td>%</td>
+                                            <td>mod alma</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <center class="fw-semibold pb-1">Sorgu operatörleri</center>
+                                    <table class="table table-bordered mb-0">
+                                        <tr>
+                                            <td>&gt;</td>
+                                            <td>büyük ise</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&gt;=</td>
+                                            <td>eşit veya büyük ise</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&lt;</td>
+                                            <td>küçük ise</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&lt;=</td>
+                                            <td>eşit veya küçük ise</td>
+                                        </tr>
+                                        <tr>
+                                            <td>==</td>
+                                            <td>eşit ise</td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>!=</b></td>
+                                            <td>eşit <u>değil</u> ise</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-4">
+                                    <div class="row fw-semibold pb-1">
+                                        <div class="col text-center pe-5 me-4">Örnek sorgu</div>
+                                        <div class="col-auto me-5">Sonuç</div>
+                                    </div>
+                                    <table class="table table-borderless">
+                                        <tr>
+                                            <td class="p-0"><pre class="mb-1"><code class="language-ruby d-block shadow-none p-2">if ( a=3 &gt; b=5 )</code></pre></td>
+                                            <td class="ps-5">false  </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0"><pre class="mb-1"><code class="language-ruby d-block shadow-none p-2">if ( a=3 &gt;= b=5 )</code></pre></td>
+                                            <td class="ps-5">false  </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0"><pre class="mb-1"><code class="language-ruby d-block shadow-none p-2">if ( a=3 &lt; b=5 )</code></pre></td>
+                                            <td class="ps-5">true  </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0"><pre class="mb-1"><code class="language-ruby d-block shadow-none p-2">if ( a=3 &lt;= b=5 )</code></pre></td>
+                                            <td class="ps-5">true  </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0"><pre class="mb-1"><code class="language-ruby d-block shadow-none p-2">if ( a=3 == b=5 )</code></pre></td>
+                                            <td class="ps-5">false  </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-0"><pre class="mb-1"><code class="language-ruby d-block shadow-none p-2">if ( a=3 <b>!=</b> b=5 )</code></pre></td>
+                                            <td class="ps-5">true  </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="item-2">
+                            <h4><code class="fw-bold">if</code>(ise) Sorgusu</h4>
+                            <p>
+                                <code>if</code> içerisinde bir bölümde aynı anda en fazla 2 şeyin karşılaştırması yapılabilir. Daha fazlası için <b><code>&&</code>(ve)</b>, <b><code>||</code>(veya)</b> operatörleri kullanılmalıdır. Sorguların bitişini belirtmek için sorgu sonucuna <code>end</code> girilmesi zorunludur.
+                            </p>
+                            <div class="alert alert-danger p-2 my-3">
+                                <i class="bi bi-x-circle-fill text-danger p-2"></i> Yanlış kullanım
+                                <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">if (birinci_degisken > ikinci_degisken > ucuncu_degisken)
+...
+end</code></pre>
+                            </div>
+                            
+                            <div class="alert alert-success p-2 my-3">
+                                <i class="bi bi-check-circle-fill text-success p-2"></i> Doğru kullanım
+                                <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">if (birinci_degisken > ikinci_degisken)   &&   (ikinci_degisken > ucuncu_degisken)
+...
+end</code></pre>
+                                <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">if (birinci_degisken > ikinci_degisken)   ||   (ikinci_degisken > ucuncu_degisken)
+...
+end</code></pre>
+                            </div>
+
+                            <br>
+
+                        <h4><code class="fw-bold">Else</code>(değil ise) ile iki sonuçlu sorgulama yapma </h4>
+                        <p>
+                            Birinci koşul sağlanamıyorsa <code>else</code> ile değilse sorgu sonucu yazdırılabilir.
+                        </p>
+                        <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">a= 3, b= 5
+
+if (a >= b )
+    puts true
+else
+    puts false
+end</code></pre>
+Sonuç:
+<pre><code class="language-ruby d-block shadow-none p-2">false</code></pre>
+
+                            <br>
+                            <h4><code class="fw-bold">Elsif</code>(yada) ile İkiden fazla sonuçlu sorgulama yapma</h4>
+                            <p>
+                                Sorgu sonucu 2 farklı sonuçtan daha fazla ise birinci sorgudan sonra <code>elsif</code> ile devam edilir.<br>
+                                <div class="alert alert-info p-2 my-3">
+                                    <i class="bi bi-info-circle-fill pe-2"></i><code>elsif</code> sorgusu daima <code>else</code> sorgusundan <u>önce</u> yazılabilir.
+                                </div>
+                            </p>
+                            <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">a= 3, b= 5
+
+if (a >= b )
+    puts true
+elsif (a == b)
+    puts "eşit"
+else
+    puts false
+end</code></pre>
+Sonuç:
+<pre><code class="language-ruby d-block shadow-none p-2">false</code></pre>
+
+<hr class="my-4">
+
+<h4>Sorgu Operatörleri</h4>
+                            <h5>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-1-circle-fill me-2 text-primary" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312V4.002Z"/>
+                                  </svg>
+                                <code>&&</code> (ve) Operatörü</h5>
+                            Aynı anda aynı bölümde <code>&&</code>(ve) operatörüyle birden fazla sorgu yapılıyorsa ve bu sorgulardan en az biri <code class="fw-semibold">false</code> ise sonuç daima <code class="fw-semibold">false</code> olacaktır.
+                            <pre class="my-2"><code class="language-ruby d-block shadow-none p-2">a= 3, b= 5
+
+if (a <= b && a >= b )
+  puts true
+else
+  puts false
+end</code></pre>
+Sonuç:
+<pre><code class="language-ruby d-block shadow-none p-2">false</code></pre>
+                                <code>a <= b</code> true(doğru) olmasına rağmen ikinci bölümde <code>a >= b</code> false(yanlış) olduğu için çıktı sonucu yinede <code>false</code> olur.
+
+                                <br><br>
+                                
+                            <h5>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-circle-fill me-2 text-primary" viewBox="0 0 16 16">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+                                  </svg>
+                                <code>||</code> (veya) Operatörü</h5>
+                            Aynı anda aynı bölümde <code>||</code>(veya) operatörüyle birden fazla sorgu yapılıyorsa ve bu sorgulardan en az biri <code class="fw-semibold">true</code> ise diğer sorgular ne olursa olsun en az 1 doğru olduğu için sonuç daima <code class="fw-semibold">true</code> olacaktır.
+                            <pre class="my-2"><code class="language-ruby d-block shadow-none p-2">a= 3, b= 5
+
+if (a <= b || a >= b )
+    puts true
+else
+    puts false
+end</code></pre>
+Sonuç:
+<pre><code class="language-ruby d-block shadow-none p-2">true</code></pre>
+                                <b class="fw-semibold">İkinci bölümde <code>a >= b</code> false(yanlış)</b> olmasına rağmen birinci bölümde <code>a <= b</code> true(doğru) olduğu için çıktı sonucu <code>true</code> olur.
+
+                            
+
+
+                        </div>
+
+                        <div id="item-3">
+                            s
+                        </div>
+                        
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
