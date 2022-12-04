@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <meta name="color-scheme" content="">
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
     <link rel="stylesheet"
@@ -16,11 +19,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-
+<script>
+    $(document).ready(function () {
+    
+    $("#sidebar").mCustomScrollbar({
+         theme: "minimal"
+    });
+    
+    $('#sidebarCollapse').on('click', function () {
+        // open or close navbar
+        $('#sidebar').toggleClass('active');
+        // close dropdowns
+        $('.collapse.in').toggleClass('in');
+        // and also adjust aria-expanded attributes we use for the open/closed arrows
+        // in our CSS
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+    
+    });
+    </script>
 <script>hljs.highlightAll();</script>
 </head>
 <body data-bs-spy="scroll" data-bs-offset="30" data-bs-target="#myScrollspy">
-
+    
     <nav class="navbar navbar-expand-lg border-bottom">
         <div class="container">
 
@@ -30,7 +51,7 @@
                         <span class="fw-semibold">
                             <span class="text-primary">@</span>kKerem<br>
                         </span>
-                        <span class="fw-semibold text-secondary">Ruby Programlama</span>
+                        <span class="small text-secondary">Programlamaya Giriş I (Ruby)</span>
                     </div>
                 </div>
                
@@ -46,14 +67,11 @@
 
             <div class="collapse navbar-collapse" id="navmenu""">
                 <ul class="navbar-nav ms-auto">
+                    <!-- <li class="nav-item">
+                        <a href="#" class="nav-link">...</a>
+                    </li> -->
                     <li class="nav-item">
-                        <a href="#products" class="nav-link">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#services" class="nav-link">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">Contact</a>
+                        <button type="button" onclick="themeToggle()">Gece modu</button>
                     </li>
                 </ul>
             </div>
@@ -64,32 +82,39 @@
 
   
     <div class="container-lg my-2">
+        <button type="button" class="btn btn-link d-block d-md-none navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+            Menu
+          </button>
         <div class="row">
-            <div class="col-sm-3" id="myScrollspy">
-                <div class="list-group">
-                    <a class="ps-lg-0 list-group-item list-group-item-action text-muted" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        2022 Güz Dönemi, Vize
-                    </a>
-                    <div class="collapse show" id="collapseExample">
-                        <a class="list-group-item" href="#section1">
-                            <div class="row baslik fw-semibold align-items-center justify-content-center">
-                                <div class="col-1"><i class="bi bi-book-half me-2 d-inline-block" style="color:#6610f2"></i></div>
-                                <div class="col">Yazım Kuralları</div>
+            <div class="col-sm-3 row-offcanvas row-offcanvas-left">
+                <div class="sidebar-offcanvas">
+                    <div id="sidebar">
+                        <div class="list-group">
+                            <a class="ps-lg-0 list-group-item list-group-item-action text-muted" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                2022 Güz Dönemi, Vize
+                            </a>
+                            <div class="collapse show" id="collapseExample">
+                                <a class="list-group-item" href="#section1">
+                                    <div class="row baslik fw-semibold align-items-center justify-content-center">
+                                        <div class="col-1"><i class="bi bi-book-half me-2 d-inline-block" style="color:#6610f2"></i></div>
+                                        <div class="col">Yazım Kuralları</div>
+                                    </div>
+                                </a>
+                                <ol>
+                                <li><a class="list-group-item list-group-item-action active" href="#section1"><span class="p-2">Değişken tanımı</span></a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#section2"><span class="p-2">Değişken içeriği</span></a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#section3"><span class="p-2">Aritmetik Operatörler</span></a></li>
+                                <li><a class="list-group-item list-group-item-action" href="#section4"><span class="p-2">if, else, elsif sorguları</span></a></li>
+                                    <ol>
+                                        <li><a class="list-group-item list-group-item-action" href="#section4-1"><span class="p-2">if(eğer)</span></a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="#section4-2"><span class="p-2">Else(değil ise)</span></a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="#section4-3"><span class="p-2">Elsif(yada)</span></a></li>
+                                        <li><a class="list-group-item list-group-item-action" href="#section4-4"><span class="p-2">Sorgu Operatörleri</span></a></li>
+                                    </ol>
+                                <li><a class="list-group-item list-group-item-action" href="#section5"><span class="p-2">Değişken içeriği</span></a></li>
+                                </ol>
                             </div>
-                        </a>
-                        <ol>
-                        <li><a class="list-group-item list-group-item-action active" href="#section1"><span class="p-2">Değişken tanımı</span></a></li>
-                        <li><a class="list-group-item list-group-item-action" href="#section2"><span class="p-2">Değişken içeriği</span></a></li>
-                        <li><a class="list-group-item list-group-item-action" href="#section3"><span class="p-2">Aritmetik Operatörler</span></a></li>
-                        <li><a class="list-group-item list-group-item-action" href="#section4"><span class="p-2">if, else, elsif sorguları</span></a></li>
-                            <ol>
-                                <li><a class="list-group-item list-group-item-action" href="#section4-1"><span class="p-2">if(eğer)</span></a></li>
-                                <li><a class="list-group-item list-group-item-action" href="#section4-2"><span class="p-2">Else(değil ise)</span></a></li>
-                                <li><a class="list-group-item list-group-item-action" href="#section4-3"><span class="p-2">Elsif(yada)</span></a></li>
-                                <li><a class="list-group-item list-group-item-action" href="#section4-4"><span class="p-2">Sorgu Operatörleri</span></a></li>
-                            </ol>
-                        <li><a class="list-group-item list-group-item-action" href="#section5"><span class="p-2">Değişken içeriği</span></a></li>
-                        </ol>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,7 +151,7 @@
                             <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">birinci_degisken = kerem</code></pre>
                         </div>
                         <div class="col fw-semibol pt-2">
-                            <i class="bi bi-x-circle-fill text-danger p-2"></i>Sonuç<br><span class="small text-muted">Metin olarak değil bir değişken adı olarak yorumladı ve <span class="text-black">kerem</span class="text-danger"> diye bir değişken olmadığı için hata verdi.</span>
+                            <i class="bi bi-x-circle-fill text-danger p-2"></i>Sonuç<br><span class="small text-muted">Metin olarak değil bir değişken adı olarak yorumladı ve <b>kerem</b> diye bir değişken olmadığı için hata verdi.</span>
                         </div>
                     </div>
                 </div>
@@ -396,13 +421,13 @@ end</code></pre>
                             </p>
                             <pre class="mb-0 mt-2"><code class="language-ruby d-block shadow-none">a= 3, b= 5
 
-    if (a >= b )
+if (a >= b )
     puts true
-    elsif (a == b)
+elsif (a == b)
     puts "eşit"
-    else
+else
     puts false
-    end</code></pre>
+end</code></pre>
     Sonuç:
     <pre><code class="language-ruby d-block shadow-none p-2">false</code></pre>
 
@@ -411,10 +436,7 @@ end</code></pre>
                     <div id="section4-4">
                         <h4>Sorgu Operatörleri</h4>
                         <h5>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-1-circle-fill me-2 text-primary" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002H7.971L6.072 5.385v1.271l1.834-1.318h.065V12h1.312V4.002Z"/>
-                              </svg>
-                            <code>&&</code> (ve) Operatörü</h5>
+                            <i class="bi bi-1-circle-fill text-primary me-2"></i><code>&&</code> (ve) Operatörü</h5>
                         Aynı anda aynı bölümde <code>&&</code>(ve) operatörüyle birden fazla sorgu yapılıyorsa ve bu sorgulardan en az biri <code class="fw-semibold">false</code> ise sonuç daima <code class="fw-semibold">false</code> olacaktır.
                         <pre class="my-2"><code class="language-ruby d-block shadow-none p-2">a= 3, b= 5
 
@@ -430,10 +452,7 @@ Sonuç:
                             <br><br>
                             
                         <h5>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-2-circle-fill me-2 text-primary" viewBox="0 0 16 16">
-                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
-                              </svg>
-                            <code>||</code> (veya) Operatörü</h5>
+                            <i class="bi bi-2-circle-fill text-primary me-2"></i><code>||</code> (veya) Operatörü</h5>
                         Aynı anda aynı bölümde <code>||</code>(veya) operatörüyle birden fazla sorgu yapılıyorsa ve bu sorgulardan en az biri <code class="fw-semibold">true</code> ise diğer sorgular ne olursa olsun en az 1 doğru olduğu için sonuç daima <code class="fw-semibold">true</code> olacaktır.
                         <pre class="my-2"><code class="language-ruby d-block shadow-none p-2">a= 3, b= 5
 
@@ -447,6 +466,7 @@ Sonuç:
                             <b class="fw-semibold">İkinci bölümde <code>a >= b</code> false(yanlış)</b> olmasına rağmen birinci bölümde <code>a <= b</code> true(doğru) olduğu için çıktı sonucu <code>true</code> olur.
 
                     </div>
+
 
                 </div>
             </div>
@@ -483,5 +503,32 @@ Sonuç:
             });
         });
         </script>
+    <script>
+    $(document).ready(function() {
+  $('[data-toggle=offcanvas]').click(function() {
+    $('.row-offcanvas').toggleClass('active');
+  });
+});
+
+function themeToggle() {
+  let element = document.body;
+  element.classList.toggle("dark");
+
+  let theme = localStorage.getItem("theme");
+  if (theme && theme === "dark") {
+    localStorage.setItem("theme", "");
+  } else {
+    localStorage.setItem("theme", "dark");
+  }
+
+  document.getElementById("theme").textContent = localStorage.getItem("theme");
+ 
+  $('head').append('<meta http-equiv="X-UA-CompatibleFFF" content="IssE=Edge" />');
+
+
+}
+
+</script>
+
 </body>
 </html>
